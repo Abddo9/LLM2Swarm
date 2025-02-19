@@ -1,0 +1,64 @@
+If the steps in the read me caused errors
+create a conda envionment
+
+conda create -n llm2swarm python=3.9
+
+conda activate llm2swarm
+
+pip install -r requirements.txt
+
+conda install conda-forge::libboost-python-devel
+
+cd argos-python
+
+source build_n_test.sh
+
+if agros is shown and you can run the simulation, then it is good
+
+debugs:
+
+if you receive:
+
+Error: 
+Cannot generate a safe runtime search path for target
+  py_controller_interface because files in some directories may conflict with
+  libraries in implicit directories:
+
+runtime library [libpython3.9.so.1.0] in /usr/lib/x86_64-linux-gnu may be hidden by files in:
+      /home/abdalwhab/miniconda3/envs/llm2swarm/lib
+
+Answer:
+you can ignore it
+
+Error:
+Somthing like can not find GLIBCXX_3.4.29 which is required by .....
+
+Answer:
+
+CAREFUL:
+THOSE STEPS MAY AFFECT YOUR SYSTEM-WIDE GCC FUNCTIONALITY
+
+execute:
+strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6 | grep GLIBCXX_3
+and check for GLIBCXX_3.4.29 in the output
+
+If it is miising, then execute:
+
+find ~/miniconda3/envs/llm2swarm/ -name "libstdc++.so*"
+
+look for the highest version of libstdc++.so.6 probably libstdc++.so.6.0.33 (if not replace the upcomming compands with the latest versiion you have)
+
+execute:
+strings ~/miniconda3/envs/llm2swarm/lib/libstdc++.so.6.0.33 | grep GLIBCXX_3
+it should have GLIBCXX_3.4.29 if so
+
+mv /usr/lib/x86_64-linux-gnu/libstdc++.so.6 . (just to have a copy of it before replacing it)
+
+then execute:
+sudo ln -s ~/miniconda3/envs/llm2swarm/lib/libstdc++.so.6.0.33 /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+
+then try 
+
+source build_n_test.sh
+
+if you have an error like _xxxxx_epuck_xxx not found just reinstall epuck plugin

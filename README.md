@@ -96,7 +96,8 @@ In the following, we detail the configurations for each showcase.
 1. Change directory to `LLM2Swarm/IndirectIntegration/`.
 2. Modify the `ARGOSPATH` variable in `syntax-generator.py` to reflect your installation directory.
 3. Set export `USEGENERATEDMOVEMENT="1"` in `DirectIntegration/experimentconfig.sh`  
-4. Execute `python3 syntax-generator.py`
+4. You need to have an llm running locally for instance you can use execute "ollama run tinyllama" for tinyllama
+5. Execute `python3 syntax-generator.py`
 
 
 ### Direct Integration: Robot-Robot Interaction

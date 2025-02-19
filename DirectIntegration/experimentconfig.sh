@@ -1,5 +1,5 @@
 # [PATHS]
-export HOMEFOLDER="$HOME/software"
+export HOMEFOLDER="$HOME/data/work/ETS/research/llms2swarm"
 export MAINFOLDER="$HOMEFOLDER/LLM2Swarm"
 export ARGOSFOLDER="$MAINFOLDER/argos-python"
 export EXPERIMENTFOLDER="$MAINFOLDER/DirectIntegration"
