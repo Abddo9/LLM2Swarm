@@ -38,6 +38,9 @@ booktitle={NeurIPS 2024 Workshop on Open-World Agents (OWA-2024)}
 2. Set up and install all prerequistes.
 4. Build `argos-python` as follows:
 ```
+
+sudo snap install ollama
+
 sudo apt install libboost-python-dev
 
 python3 -m venv venv
